@@ -71,3 +71,18 @@
 	.modal-body{
 		background-color: #eee;
 	}
+	.width-20per{
+		width: 20%;
+	}
+	.width-30per{
+		width: 30%;
+	}
+	.width-40per{
+		width: 40%;
+	}
+	.width-50per{
+		width: 50%;
+	}
+	.ib{
+		display: inline-block;
+	}

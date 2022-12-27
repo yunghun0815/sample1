@@ -1,13 +1,61 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
+<script>
+	$(function(){
+		$("#option-week").hide();
+		$("#option-month").hide();
+		
+		$("input[name='cycle']").change(function(){
+			$(this).parent().find("input, select").attr("disabled", "disabled");
+			$("input[name='cycle']").removeAttr("disabled");
+			$(this).next().next().find("input, select").removeAttr("disabled");
+		});
+				
+		$("#cron-box").change(function(){
+			const option = $(this).val();
+			
+			if(option == 'week'){
+				$("#option-week").show();
+				$("#option-month").hide();		
+			}else if(option == 'month'){
+				$("#option-week").hide();
+				$("#option-month").show();
+			}else{
+				$("#option-week").hide();
+				$("#option-month").hide();		
+			}
+		});
+		
+		$("#delete-button").click(function(){
+			window.confirm('정말 삭제하시겠습니까?');
+		});
+	});
+</script>
+<style>
+	.form-switch .form-check-input{
+		width: 3em;
+		cursor: pointer;
+	}
+	.form-check-input{
+		height: 1.5em;
+	}
+	.group-table tr td:nth-child(8) {
+	    display: flex;
+	    justify-content: center;
+	    padding-left: 15px;
+	}
+	.play-icon{
+		width: 27px;
+	}
+</style>
 	<div class="header d-flex align-items-center bg-white" style="padding-left: 40px;">
 		<span class="content-title" style="font-size: 25px;">배치 관리</span>
 	</div>
 	<section class="main">
 		<div style="width: 80%; margin: 50px auto;">
 			<h1 class="text-end">
-				<button class="btn btn-success btn-sm">Add</button>
+				<button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#add-group-modal">Add</button>
 			</h1>
 			<nav class="navbar navbar-light bg-light">
 			  <div class="container-fluid">
@@ -23,7 +71,7 @@
 				</form>
 			  </div>
 			</nav>
-			<table class="table table-borderless align-middle bg-white">
+			<table class="group-table table table-borderless align-middle bg-white">
 				<tr>
 					<th>그룹ID</th>
 					<th>그룹명</th>
@@ -45,13 +93,15 @@
 					<td>매일 00시00분</td>
 					<td class="text-center">N</td>
 					<td class="text-center">
-						<img class="icon" src="/image/common/play-button.png">
+						<div class="form-check form-switch">
+						  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
+						</div>
 					</td>
 					<td class="text-center">
 						<img class="icon" src="/image/common/detail-button.png">
 					</td>
 					<td class="text-center">
-						<img class="icon" src="/image/common/delete-button.png">
+						<img id="delete-button" class="icon" src="/image/common/delete-button.png">
 					</td>
 				</tr>
 				<tr>
@@ -63,13 +113,15 @@
 					<td>매월 1일 00시00분</td>
 					<td class="text-center">N</td>
 					<td class="text-center">
-						<img class="icon" src="/image/common/stop-button.png">
+						<div class="form-check form-switch">
+						  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+						</div>
 					</td>
 					<td class="text-center">
 						<img class="icon" src="/image/common/detail-button.png">
 					</td>
 					<td class="text-center">
-						<img class="icon" src="/image/common/delete-button.png">
+						<img id="delete-button" class="icon" src="/image/common/delete-button.png">
 					</td>
 				</tr>
 				<tr>
@@ -81,7 +133,9 @@
 					<td>매월 1일 00시00분</td>
 					<td class="text-center">N</td>
 					<td class="text-center">
-						<img class="icon" src="/image/common/stop-button.png">
+						<div class="form-check form-switch">
+						  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+						</div>
 					</td>
 					<td class="text-center">
 						<img class="icon" src="/image/common/detail-button.png">
@@ -99,7 +153,9 @@
 					<td>매월 1일 00시00분</td>
 					<td class="text-center">N</td>
 					<td class="text-center">
-						<img class="icon" src="/image/common/stop-button.png">
+						<div class="form-check form-switch">
+						  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+						</div>
 					</td>
 					<td class="text-center">
 						<img class="icon" src="/image/common/detail-button.png">
@@ -117,7 +173,9 @@
 					<td>매월 1일 00시00분</td>
 					<td class="text-center">N</td>
 					<td class="text-center">
-						<img class="icon" src="/image/common/stop-button.png">
+						<div class="form-check form-switch">
+						  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+						</div>
 					</td>
 					<td class="text-center">
 						<img class="icon" src="/image/common/detail-button.png">
@@ -145,7 +203,8 @@
 		</div>
 		<div style="width: 80%; margin: 50px auto;">
 			<h1 class="text-end">
-				<button class="btn btn-success btn-sm">Add</button>
+				<button class="btn btn-success btn-sm"
+				 data-bs-toggle="modal" data-bs-target="#add-program-modal">Add</button>
 			</h1>
 			<nav class="navbar navbar-light bg-light">
 			  <div class="container-fluid">
@@ -169,7 +228,7 @@
 					<th>프로그램명</th>
 					<th>파일경로</th>
 					<th class="text-center">실행순서</th>
-					<th class="text-center button-td">실행/중지</th>
+					<th class="text-center button-td">수동실행</th>
 					<th class="text-center button-td">상세보기</th>
 					<th class="text-center button-td">삭제하기</th>
 				</tr>
@@ -180,7 +239,7 @@
 					<td>C:\dev\batch-agent\test-app1.bat</td>
 					<td class="text-center">1</td>
 					<td class="text-center">
-						<img class="icon" src="/image/common/play-button.png">
+						<img class="play-icon" src="/image/common/play-button.png">
 					</td>
 					<td class="text-center">
 						<img class="icon" src="/image/common/detail-button.png">
@@ -196,7 +255,7 @@
 					<td>C:\dev\batch-agent\test-app2.jar</td>
 					<td class="text-center">2</td>
 					<td class="text-center">
-						<img class="icon" src="/image/common/play-button.png">
+						<img class="play-icon" src="/image/common/play-button.png">
 					</td>
 					<td class="text-center">
 						<img class="icon" src="/image/common/detail-button.png">
@@ -212,7 +271,7 @@
 					<td>C:\dev\batch-agent\batch1.jar</td>
 					<td class="text-center">1</td>
 					<td class="text-center">
-						<img class="icon" src="/image/common/stop-button.png">
+						<img class="play-icon" src="/image/common/play-button.png">
 					</td>
 					<td class="text-center">
 						<img class="icon" src="/image/common/detail-button.png">
@@ -228,7 +287,7 @@
 					<td>C:\dev\batch-agent\batch2.jar</td>
 					<td class="text-center">2</td>
 					<td class="text-center">
-						<img class="icon" src="/image/common/stop-button.png">
+						<img class="play-icon" src="/image/common/play-button.png">
 					</td>
 					<td class="text-center">
 						<img class="icon" src="/image/common/detail-button.png">
@@ -244,7 +303,7 @@
 					<td>C:\dev\batch-agent\batch3.jar</td>
 					<td class="text-center">3</td>
 					<td class="text-center">
-						<img class="icon" src="/image/common/stop-button.png">
+						<img class="play-icon" src="/image/common/play-button.png">
 					</td>
 					<td class="text-center">
 						<img class="icon" src="/image/common/detail-button.png">
@@ -272,5 +331,7 @@
 		</div>
 	</section>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
+<%@ include file="/WEB-INF/views/modal/addGroupModal.jsp" %>
+<%@ include file="/WEB-INF/views/modal/addProgramModal.jsp" %>
 </body>
 </html>
