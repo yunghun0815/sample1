@@ -19,7 +19,7 @@
 						<option>그룹명</option>
 					</select>
 				    <input class="form-control me-2" type="search" placeholder="검색어를 입력하세요."style="width: 200px; margin-left: 5px">
-				    <button class="btn btn-outline-success" type="submit">search</button>
+				    <button class="btn btn-outline-primary" type="submit">Search</button>
 				</form>
 			  </div>
 			</nav>
@@ -158,7 +158,7 @@
 						<option>프로그램명</option>
 					</select>
 				    <input class="form-control me-2" type="search" placeholder="검색어를 입력하세요."style="width: 200px; margin-left: 5px">
-				    <button class="btn btn-outline-success" type="submit">search</button>
+				    <button class="btn btn-outline-primary" type="submit">Search</button>
 				</form>
 			  </div>
 			</nav>

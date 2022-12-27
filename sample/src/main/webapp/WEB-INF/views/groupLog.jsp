@@ -12,6 +12,18 @@
 		text-align: center;
 	}
 </style>
+<script>
+	const dummy = `Whitelabel Error Page
+		This application has no explicit mapping for /error, so you are seeing this as a fallback.
+
+		Tue Dec 27 14:06:29 KST 2022
+		There was an unexpected error (type=Not Found, status=404).
+		No message available`;
+
+	function errorLog(){
+		alert(dummy);
+	}
+</script>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 	<div class="header d-flex align-items-center bg-white" style="padding-left: 40px;">
@@ -40,13 +52,13 @@
 						<option>그룹명</option>
 					</select>
 				    <input class="form-control me-2" type="search" placeholder="검색어를 입력하세요."style="width: 200px; margin-left: 5px">
-				    <button class="btn btn-outline-primary" type="submit">search</button>
+				    <button class="btn btn-outline-primary" type="submit">Search</button>
 				</form>
 			  </div>
 			</nav>
 			<table class="table table-borderless align-middle bg-white">
 				<tr>
-					<th style="width: 10%">로그 회차</th>
+					<th style="width: 10%">로그ID</th>
 					<th style="width: 10%">그룹ID</th>
 					<th style="width: 10%">그룹명</th>
 					<th style="width: 10%">결과</th>
@@ -55,9 +67,9 @@
 					<th style="width: 10%">재실행</th>
 				</tr>
 				<tr>
-					<td>GRL00001</td>
-					<td>BGR00001</td>
-					<td>테스트그룹1</td>
+					<td data-bs-toggle="modal" data-bs-target="#group-log-detail-modal">GRL00001</td>
+					<td data-bs-toggle="modal" data-bs-target="#group-log-detail-modal">BGR00001</td>
+					<td data-bs-toggle="modal" data-bs-target="#group-log-detail-modal">테스트그룹1</td>
 					<td>실행중</td>
 					<td>2022-12-26 00:00:00</td>
 					<td>-</td>
@@ -134,7 +146,8 @@
 					<td>2022-12-18 00:00:00</td>
 					<td>2022-12-18 00:00:10</td>
 					<td>
-						<button class="btn btn-outline-danger btn-sm" type="submit">restart</button>
+						<button class="btn btn-outline-danger btn-sm" type="submit"  
+							data-bs-toggle="modal" data-bs-target="#restart-modal">Restart</button>
 					</td>
 				</tr>
 				<tr>
@@ -166,5 +179,7 @@
 		</div>
 	</section>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
+<%@ include file="/WEB-INF/views/modal/groupLogRestartModal.jsp" %>
+<%@ include file="/WEB-INF/views/modal/groupLogDetailModal.jsp" %>
 </body>
 </html>

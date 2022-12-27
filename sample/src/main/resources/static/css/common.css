@@ -68,3 +68,6 @@
     .button-td{
     	width: 8%;
     }
+	.modal-body{
+		background-color: #eee;
+	}
