@@ -11,9 +11,34 @@
 	tr, td, th{
 		text-align: center;
 	}
+	textarea{
+	    -ms-overflow-style: none; /* IE and Edge */
+   	 	scrollbar-width: none; /* Firefox */
+	}
+	textarea::-webkit-scrollbar {
+    	display: none; /* Chrome, Safari, Opera*/
+	}
 </style>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
+
+<script>
+	$(function(){
+		$(".restart-btn").click(function(){
+			let param = prompt("추가하실 파라미터를 입력해주세요.");
+			
+		});
+		
+		const dummy = `Whitelabel Error Page
+			This application has no explicit mapping for /error, so you are seeing this as a fallback.
+
+			Tue Dec 27 14:06:29 KST 2022
+			There was an unexpected error (type=Not Found, status=404).
+			No message available`;
+		
+		$("textarea").html(dummy);
+	});
+</script>
 	<div class="header d-flex align-items-center bg-white" style="padding-left: 40px;">
 		<span class="content-title" style="font-size: 25px;">프로그램 로그</span>
 	</div>
@@ -44,7 +69,7 @@
 						<option>프로그램명</option>
 					</select>
 				    <input class="form-control me-2" type="search" placeholder="검색어를 입력하세요."style="width: 200px; margin-left: 5px">
-				    <button class="btn btn-outline-primary" type="submit">search</button>
+				    <button class="btn btn-outline-primary" type="submit">Search</button>
 				</form>
 			  </div>
 			</nav>
@@ -60,9 +85,9 @@
 					<th style="width: 10%">재실행</th>
 				</tr>
 				<tr>
-					<td>PGL00010</td>
-					<td>BPG00001</td>
-					<td>정산1</td>
+					<td data-bs-toggle="modal" data-bs-target="#program-log-detail-modal">PGL00010</td>
+					<td data-bs-toggle="modal" data-bs-target="#program-log-detail-modal">BPG00001</td>
+					<td data-bs-toggle="modal" data-bs-target="#program-log-detail-modal">정산1</td>
 					<td>성공</td>
 					<td></td>
 					<td>2022-12-29 00:00:00</td>
@@ -137,7 +162,7 @@
 					<td></td>
 					<td>2022-12-23 00:00:00</td>
 					<td>2022-12-23 00:10:00</td>
-					<td><button class="btn btn-outline-danger btn-sm" type="submit">restart</button></td>
+					<td><button class="btn btn-outline-danger btn-sm restart-btn" type="submit">Restart</button></td>
 				</tr>
 				<tr>
 					<td>PGL00002</td>
@@ -177,6 +202,7 @@
 			</nav>
 		</div>
 	</section>
+<%@ include file="/WEB-INF/views/modal/programLogDetailModal.jsp" %>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>
