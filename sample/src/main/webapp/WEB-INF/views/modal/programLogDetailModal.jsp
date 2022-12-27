@@ -27,7 +27,7 @@
 				<tr>
 					<th>에러메세지</th>
 					<td>
-						<textarea rows="10" cols="40"></textarea>
+						<textarea rows="10" cols="40" readonly></textarea>
 					</td>
 				</tr>
 				<tr>

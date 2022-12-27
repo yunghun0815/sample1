@@ -7,6 +7,17 @@
         height:30px;
         background-color:yellow;
     }
+    
+    .inactive input{
+        border: none;
+        pointer-events: none;
+    }
+    
+    .active input{
+        border: 1px solid;
+        pointer-events: auto;
+    }
+    
 </style>
 <script type="text/javascript">
 	const startBtn = `<button onclick="batchStart(this)"><img class="icon" src="/image/common/play-button.png"></button>`;
@@ -76,6 +87,78 @@
 		})
 	}
 	
+	function appModify(table){
+		const obj = $(table);
+		var frm = $('.inactive');
+		const id = obj.attr("id")
+		//class 변경 inacive->active
+		frm.removeClass('inactive');
+		frm.addClass('active');
+		//readonly 제거
+		$('.readwrite').prop('readonly', false);
+		//select readonly 제거
+		$(".readwrite option").not(":selected").attr("disabled", "");
+		//file 변경
+		$('.file').html(`<input class="form-control" type="file">`);
+		//버튼 변경(수정삭제목록 -> 저장이전목록)
+		var view =`<button type="submit" class="btn btn-secondary">저장</button>
+	        <button type="button" onclick="appDetail(this)" class="btn btn-secondary">Back</button>
+	        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">목록</button>`;
+		obj.closest(".modal-footer").html(view);
+	}
+	function appDetail(table){
+		const obj = $(table);
+		var frm = $('.active');
+		const id = obj.attr("id")
+		//class 변경
+		frm.removeClass('active');
+		frm.addClass('inactive');
+		//readonly 추가
+		$('.readwrite').prop('readonly', true);
+		//select readonly 제거
+		$(".readwrite option").not(":selected").attr("disabled", "disabled");
+		//file 변경
+		$('.file').html(`C:\dev\batch-agent\test-app2.jar`);
+		//버튼 변경(수정삭제목록 -> 저장이전목록)
+		var view =`<button type="button" onclick="appModify(this)" class="btn btn-secondary">수정</button>
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">삭제</button>
+	        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">목록</button>`;
+		obj.closest(".modal-footer").html(view);
+	}
+	function groupModify(table){
+		const obj = $(table);
+		var frm = $('.inactive');
+		const id = obj.attr("id")
+		//class 변경 inacive->active
+		frm.removeClass('inactive');
+		frm.addClass('active');
+		//readonly 제거
+		$('.readwrite').prop('readonly', false);
+		//select readonly 제거
+		$(".readwrite option").not(":selected").attr("disabled", "");
+		//버튼 변경(수정삭제목록 -> 저장이전목록)
+		var view =`<button type="submit" class="btn btn-secondary">저장</button>
+	        <button type="button" onclick="groupDetail(this)" class="btn btn-secondary">Back</button>
+	        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">목록</button>`;
+		obj.closest(".modal-footer").html(view);
+	}
+	function groupDetail(table){
+		const obj = $(table);
+		var frm = $('.active');
+		const id = obj.attr("id")
+		//class 변경
+		frm.removeClass('active');
+		frm.addClass('inactive');
+		//readonly 추가
+		$('.readwrite').prop('readonly', true);
+		//select readonly 제거
+		$(".readwrite option").not(":selected").attr("disabled", "disabled");
+		//버튼 변경(수정삭제목록 -> 저장이전목록)
+		var view =`<button type="button" onclick="appModify(this)" class="btn btn-secondary">수정</button>
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">삭제</button>
+	        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">목록</button>`;
+		obj.closest(".modal-footer").html(view);
+	}
 	$("#sortable").sortable({
 		placeholder : "itemBoxHighlight", /* 이동할 위치 css 적용  */
 		start : function(event, ui) {
@@ -282,7 +365,8 @@
 					<td class="text-center">
 						<img class="icon" src="/image/common/play-button.png">
 					</td>
-					<td class="text-center">
+					<td class="text-center" data-bs-toggle="modal"
+							data-bs-target="#update-batch-app" style="cursor: pointer;">
 						<img class="icon" src="/image/common/detail-button.png">
 					</td>
 					<td class="text-center">
@@ -298,7 +382,8 @@
 					<td class="text-center">
 						<img class="icon" src="/image/common/play-button.png">
 					</td>
-					<td class="text-center">
+					<td class="text-center" data-bs-toggle="modal"
+							data-bs-target="#update-batch-app" style="cursor: pointer;">
 						<img class="icon" src="/image/common/detail-button.png">
 					</td>
 					<td class="text-center">
@@ -314,7 +399,8 @@
 					<td class="text-center">
 						<img class="icon" src="/image/common/stop-button.png">
 					</td>
-					<td class="text-center">
+					<td class="text-center" data-bs-toggle="modal"
+							data-bs-target="#update-batch-app" style="cursor: pointer;">
 						<img class="icon" src="/image/common/detail-button.png">
 					</td>
 					<td class="text-center">
@@ -330,7 +416,8 @@
 					<td class="text-center">
 						<img class="icon" src="/image/common/stop-button.png">
 					</td>
-					<td class="text-center">
+					<td class="text-center" data-bs-toggle="modal"
+							data-bs-target="#update-batch-app" style="cursor: pointer;">
 						<img class="icon" src="/image/common/detail-button.png">
 					</td>
 					<td class="text-center">
@@ -346,7 +433,8 @@
 					<td class="text-center">
 						<img class="icon" src="/image/common/stop-button.png">
 					</td>
-					<td class="text-center">
+					<td class="text-center" data-bs-toggle="modal"
+							data-bs-target="#update-batch-app" style="cursor: pointer;">
 						<img class="icon" src="/image/common/detail-button.png">
 					</td>
 					<td class="text-center">
@@ -373,6 +461,7 @@
 	</section>
 	
 	<jsp:include page="modal/updateBatchGroup.jsp" /> <!-- 배치그룹 수정 모달창 -->
+	<jsp:include page="modal/updateBatchApp.jsp" /> <!-- 배치프로그램 수정 모달창 -->
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>

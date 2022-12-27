@@ -1,26 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<style>
+.program-detail tr td:first-child {
+	text-align: center;
+}
+</style>
 <div id="update-batch-group" class="modal" tabindex="-1">
 	  <div class="modal-dialog modal-lg">
 	  
 	    <div class="modal-content">
+	      <form action="" method="POST" class="inactive">
 	      <div class="modal-header">
 	        <h5 class="modal-title">배치그룹 상세보기</h5>
 	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 	      </div>
 	      <div class="modal-body">
-	      		<table class="table table-bordered align-middle bg-white" style="width: 100%;" id="sortable">
-	      			<tr>
-	      				<td colspan="2">
-	      					<h3>그룹 상세내용</h3>
-	      				</td>
-	      			</tr>
+	            <div style="margin: 30px 0 10px;">
+	      		    <h5>그룹 상세정보</h5>
+	      	    </div>
+	      		<table class="program-detail table table-bordered align-middle bg-white" style="width: 100%;" id="sortable">
+	      			
 	      			<tr>
 	      				<td>
 	      					<strong>그룹ID</strong>
 	      				</td>
 	      				<td>
-	      					BGP0001    					
+	      					<input class="onlyread form-control" type="text" value="BGP0001" readonly>    					
 	      				</td>
 	      			</tr>
 	      			<tr>
@@ -28,7 +33,7 @@
 	      					<strong>그룹명</strong>
 	      				</td>
 	      				<td>
-	      					테스트그룹1    					
+	      					<input class="readwrite form-control" type="text" value="테스트그룹1" readonly>    					
 	      				</td>
 	      			</tr>
 					<tr>
@@ -36,7 +41,7 @@
 	      					<strong>그룹 설명</strong>
 	      				</td>
 	      				<td>
-	      					오늘 날짜 마감처리			
+	      					<input class="readwrite form-control" type="text" value="오늘 날짜 마감처리" readonly>			
 	      				</td>
 	      			</tr>		
 	      			<tr>
@@ -44,7 +49,7 @@
 	      					<strong>호스트명</strong>
 	      				</td>
 	      				<td>
-	      					master			
+	      					<input class="readwrite form-control" type="text" value="master" readonly>			
 	      				</td>
 	      			</tr>
 	      			<tr>
@@ -52,7 +57,7 @@
 	      					<strong>IP</strong>
 	      				</td>
 	      				<td>
-	      				  	localhost
+	      				  	<input class="readwrite form-control" type="text" value="localhost" readonly>
 	      				</td>
 	      			</tr>
 	      			<tr>
@@ -60,7 +65,7 @@
 	      					<strong>주기</strong>
 	      				</td>
 	      				<td>
-	      				  	매일 00시 00분				
+	      				  	<input class="readwrite form-control" type="text" value="매일 00시 00분" readonly>				
 	      				</td>
 	      			</tr>
 	      			<tr>
@@ -71,30 +76,12 @@
 	      				  	Y				
 	      				</td>
 	      			</tr>
-	      			<tr>
-	      				<td>
-	      					<strong>실행 시작날짜</strong>
-	      				</td>
-	      				<td>
-	      				  	2022년 12월 25일 12:25:00	
-	      				</td>
-	      			</tr>
-	      			<tr>
-	      				<td>
-	      					<strong>실행 종료날짜</strong>
-	      				</td>
-	      				<td>
-	      				  	9999년 00월 00일 00:00:00		
-	      				</td>
-	      			</tr>
 	      		</table>
 	      		<br>
-	      		<table style="width:100%;">
-	      		    <tr>
-	      				<td colspan="2">
-	      					<h3>프로그램 목록</h3>
-	      				</td>
-	      			</tr>
+	      		<div style="margin: 30px 0 10px;">
+	      		    <h5>프로그램 목록</h5>
+	      	    </div>
+	      		<table class="table table-bordered align-middle bg-white" style="width:100%;">
 	      			<tr>
 	      				<td>
 	      					<strong>프로그램ID</strong>
@@ -166,10 +153,10 @@
 	      		</table>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">수정</button>
-	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">삭제<button>
+	        <button type="button" class="btn btn-secondary" onclick="groupModify(this)">수정</button>
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">삭제</button>
 	        <button type="button" class="btn btn-primary">목록</button>
-	      </div>
+	      </div></form>
 	    </div>
 	  </div>
 </div>
