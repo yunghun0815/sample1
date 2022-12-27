@@ -1,4 +1,99 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<style>
+
+    .itemBoxHighlight {
+        border:solid 1px black;
+        width:200px;
+        height:30px;
+        background-color:yellow;
+    }
+</style>
+<script type="text/javascript">
+	const startBtn = `<button onclick="batchStart(this)"><img class="icon" src="/image/common/play-button.png"></button>`;
+	const stopBtn = `<button onclick="batchStop(this)"><img class="icon" src="/image/common/stop-button.png"></button>`;
+	
+	function batchStart(btn){
+		
+		const obj = $(btn);
+		const id = obj.closest(".group-tr").attr("id");
+
+	  	 $.ajax({
+			url: "/job/add",
+			method: "POST",
+			data: {
+				batchGroupId: id 
+			},
+			success: function(result){
+				//버튼 바꾸기
+				obj.parent().html(stopBtn);
+			},
+			error: function(request,status,error){
+				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			}
+		});   
+	}
+	
+	function batchStop(btn){
+		const obj = $(btn);
+		const id = obj.closest(".group-tr").attr("id");
+	 	 $.ajax({
+			url: "/job/remove",
+			method: "POST",
+			data: {
+				batchGroupId: id 
+			},
+			success: function(result){
+				//버튼 바꾸기
+				obj.parent().html(startBtn);
+			},
+			error: function(request,status,error){
+				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			}
+		});  
+	}
+	
+	// 그룹 상세보기
+	function groupDetail(td){
+		const obj = $(td);
+		const id = obj.attr("id");
+		$("#update-batchGroupId").val();
+	}
+	
+	// 프로그램 상세보기
+	function appDetail(td){
+		const obj = $(td);
+		const id = obj.attr("id");
+		
+		$.ajax({
+			url: "/batch/app/detail?appId=" + id,
+			method: "GET",
+			success: function(result){
+				$("#update-app-batchGroupId").val(result['batchGroupId']);
+				$("#update-app-batchAppId").val(result['appId']);
+				$("#update-app-appName").val(result['appName']);
+				$("#update-app-path").val(result['path']);
+			}
+		})
+	}
+	
+	$("#sortable").sortable({
+		placeholder : "itemBoxHighlight", /* 이동할 위치 css 적용  */
+		start : function(event, ui) {
+			// 드래그 시작 시 호출
+		},
+		stop : function(event, ui) {
+			// 드래그 종료 시 호출
+			reorder();
+		}
+	});
+
+	/* 번호 재입력(내부적으로) */
+	function reorder() {
+		$("#sortable tr").each(function(i, box) {
+			$(box).val(i + 1);
+		});
+	}
+</script>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 	<div class="header d-flex align-items-center bg-white" style="padding-left: 40px;">
@@ -47,7 +142,8 @@
 					<td class="text-center">
 						<img class="icon" src="/image/common/play-button.png">
 					</td>
-					<td class="text-center">
+					<td class="text-center" data-bs-toggle="modal"
+							data-bs-target="#update-batch-group" style="cursor: pointer;">
 						<img class="icon" src="/image/common/detail-button.png">
 					</td>
 					<td class="text-center">
@@ -65,7 +161,8 @@
 					<td class="text-center">
 						<img class="icon" src="/image/common/stop-button.png">
 					</td>
-					<td class="text-center">
+					<td class="text-center" data-bs-toggle="modal"
+							data-bs-target="#update-batch-group" style="cursor: pointer;">
 						<img class="icon" src="/image/common/detail-button.png">
 					</td>
 					<td class="text-center">
@@ -83,7 +180,8 @@
 					<td class="text-center">
 						<img class="icon" src="/image/common/stop-button.png">
 					</td>
-					<td class="text-center">
+					<td class="text-center" data-bs-toggle="modal"
+							data-bs-target="#update-batch-group" style="cursor: pointer;">
 						<img class="icon" src="/image/common/detail-button.png">
 					</td>
 					<td class="text-center">
@@ -101,7 +199,8 @@
 					<td class="text-center">
 						<img class="icon" src="/image/common/stop-button.png">
 					</td>
-					<td class="text-center">
+					<td class="text-center" data-bs-toggle="modal"
+							data-bs-target="#update-batch-group" style="cursor: pointer;">
 						<img class="icon" src="/image/common/detail-button.png">
 					</td>
 					<td class="text-center">
@@ -119,7 +218,8 @@
 					<td class="text-center">
 						<img class="icon" src="/image/common/stop-button.png">
 					</td>
-					<td class="text-center">
+					<td class="text-center" data-bs-toggle="modal"
+							data-bs-target="#update-batch-group" style="cursor: pointer;">
 						<img class="icon" src="/image/common/detail-button.png">
 					</td>
 					<td class="text-center">
@@ -271,6 +371,8 @@
 			</nav>
 		</div>
 	</section>
+	
+	<jsp:include page="modal/updateBatchGroup.jsp" /> <!-- 배치그룹 수정 모달창 -->
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>
