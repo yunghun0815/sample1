@@ -160,8 +160,29 @@
 			$(box).val(i + 1);
 		});
 	}
+	
+	
+	function addProgram(param){
+		const programTable = `<table class="table table-bordered align-middle bg-white">
+			<tr>
+				<th>프로그램명</th>
+				<td>
+					<input class="form-control" type="text">
+				</td>
+			</tr>
+			<tr>
+				<th>파일경로</th>
+				<td>
+					<input class="form-control" type="file">
+				</td>
+			</tr></table>`; 
+			
+			
+		const obj = $(param);
+		obj.closest('.add-program').append(programTable);
+	}		
 </script>
-<body>
+<!-- <body> -->
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <script>
 	$(function(){
@@ -198,8 +219,6 @@
 	.form-switch .form-check-input{
 		width: 3em;
 		cursor: pointer;
-	}
-	.form-check-input{
 		height: 1.5em;
 	}
 	.group-table tr td:nth-child(8) {
@@ -217,7 +236,7 @@
 	<section class="main">
 		<div style="width: 80%; margin: 50px auto;">
 			<h1 class="text-end">
-				<button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#add-group-modal">Add</button>
+				<button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#add-group-modal">Add</button>
 			</h1>
 			<nav class="navbar navbar-light bg-light">
 			  <div class="container-fluid">
@@ -370,7 +389,7 @@
 		</div>
 		<div style="width: 80%; margin: 50px auto;">
 			<h1 class="text-end">
-				<button class="btn btn-success btn-sm"
+				<button class="btn btn-secondary btn-sm"
 				 data-bs-toggle="modal" data-bs-target="#add-program-modal">Add</button>
 			</h1>
 			<nav class="navbar navbar-light bg-light">
@@ -406,7 +425,7 @@
 					<td>C:\dev\batch-agent\test-app1.bat</td>
 					<td class="text-center">1</td>
 					<td class="text-center">
-						<img class="play-icon" src="/image/common/play-button.png">
+						<img class="play-icon" src="/image/common/play-button.png" onclick="prompt('파라미터를 입력해주세요.')">
 					</td>
 					<td class="text-center" data-bs-toggle="modal"
 							data-bs-target="#update-batch-app" style="cursor: pointer;">

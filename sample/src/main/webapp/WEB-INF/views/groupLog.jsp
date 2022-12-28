@@ -23,6 +23,7 @@
 	function errorLog(){
 		alert(dummy);
 	}
+	
 </script>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
@@ -58,21 +59,26 @@
 			</nav>
 			<table class="table table-borderless align-middle bg-white">
 				<tr>
-					<th style="width: 10%">로그ID</th>
-					<th style="width: 10%">그룹ID</th>
-					<th style="width: 10%">그룹명</th>
+					<th style="width: 12%">로그ID</th>
+					<th style="width: 12%">그룹ID</th>
+					<th style="width: 12%">그룹명</th>
 					<th style="width: 10%">결과</th>
- 					<th style="width: 25%">배치시작시간</th>
-					<th style="width: 25%">배치종료시간</th>
-					<th style="width: 10%">재실행</th>
+ 					<th style="width: 20%">배치시작시간</th>
+					<th style="width: 20%">배치종료시간</th>
+					<th style="width: 7%">상세보기</th>
+					<th style="width: 7%">재실행</th>
 				</tr>
 				<tr>
-					<td data-bs-toggle="modal" data-bs-target="#group-log-detail-modal">GRL00001</td>
-					<td data-bs-toggle="modal" data-bs-target="#group-log-detail-modal">BGR00001</td>
-					<td data-bs-toggle="modal" data-bs-target="#group-log-detail-modal">테스트그룹1</td>
+					<td >GRL00001</td>
+					<td >BGR00001</td>
+					<td >테스트그룹1</td>
 					<td>실행중</td>
 					<td>2022-12-26 00:00:00</td>
 					<td>-</td>
+					<td>
+						<img class="icon" src="/image/common/detail-button.png" 
+							data-bs-toggle="modal" data-bs-target="#group-log-detail-modal">
+					</td>
 					<td></td>
 				</tr>
 				<tr>
@@ -82,6 +88,10 @@
 					<td>성공</td>
 					<td>2022-12-25 00:00:00</td>
 					<td>2022-12-25 00:00:10</td>
+					<td>
+						<img class="icon" src="/image/common/detail-button.png" 
+							data-bs-toggle="modal" data-bs-target="#group-log-detail-modal">
+					</td>
 					<td></td>
 				</tr>
 				<tr>
@@ -91,6 +101,10 @@
 					<td>성공</td>
 					<td>2022-12-24 00:00:00</td>
 					<td>2022-12-24 00:00:10</td>
+					<td>
+						<img class="icon" src="/image/common/detail-button.png" 
+							data-bs-toggle="modal" data-bs-target="#group-log-detail-modal">
+					</td>
 					<td></td>
 				</tr>
 				<tr>
@@ -100,6 +114,10 @@
 					<td>성공</td>
 					<td>2022-12-23 00:00:00</td>
 					<td>2022-12-23 00:00:10</td>
+					<td>
+						<img class="icon" src="/image/common/detail-button.png" 
+							data-bs-toggle="modal" data-bs-target="#group-log-detail-modal">
+					</td>
 					<td></td>
 				</tr>
 				<tr>
@@ -109,6 +127,10 @@
 					<td>성공</td>
 					<td>2022-12-22 00:00:00</td>
 					<td>2022-12-22 00:00:10</td>
+					<td>
+						<img class="icon" src="/image/common/detail-button.png" 
+							data-bs-toggle="modal" data-bs-target="#group-log-detail-modal">
+					</td>
 					<td></td>
 				</tr>
 				<tr>
@@ -118,6 +140,10 @@
 					<td>성공</td>
 					<td>2022-12-21 00:00:00</td>
 					<td>2022-12-21 00:00:10</td>
+					<td>
+						<img class="icon" src="/image/common/detail-button.png" 
+							data-bs-toggle="modal" data-bs-target="#group-log-detail-modal">
+					</td>
 					<td></td>
 				</tr>
 				<tr>
@@ -127,6 +153,10 @@
 					<td>성공</td>
 					<td>2022-12-20 00:00:00</td>
 					<td>2022-12-20 00:00:10</td>
+					<td>
+						<img class="icon" src="/image/common/detail-button.png" 
+							data-bs-toggle="modal" data-bs-target="#group-log-detail-modal">
+					</td>
 					<td></td>
 				</tr>
 				<tr>
@@ -136,6 +166,10 @@
 					<td>성공</td>
 					<td>2022-12-19 00:00:00</td>
 					<td>2022-12-19 00:00:10</td>
+					<td>
+						<img class="icon" src="/image/common/detail-button.png" 
+							data-bs-toggle="modal" data-bs-target="#group-log-detail-modal">
+					</td>
 					<td></td>
 				</tr>
 				<tr>
@@ -146,8 +180,14 @@
 					<td>2022-12-18 00:00:00</td>
 					<td>2022-12-18 00:00:10</td>
 					<td>
-						<button class="btn btn-outline-danger btn-sm" type="submit"  
-							data-bs-toggle="modal" data-bs-target="#restart-modal">Restart</button>
+						<img class="icon" src="/image/common/detail-button.png" 
+							data-bs-toggle="modal" data-bs-target="#group-log-detail-modal">
+					</td>
+					<td>
+						<!-- <button class="btn btn-outline-danger btn-sm" type="submit"  
+							data-bs-toggle="modal" data-bs-target="#restart-modal">Restart</button> -->
+							<img class="icon" src="/image/common/restart-button.png" 
+							data-bs-toggle="modal" data-bs-target="#restart-modal" style="cursor: pointer;">
 					</td>
 				</tr>
 				<tr>
@@ -157,6 +197,10 @@
 					<td>성공</td>
 					<td>2022-12-17 00:00:00</td>
 					<td>2022-12-17 00:00:10</td>
+					<td>
+						<img class="icon" src="/image/common/detail-button.png" 
+							data-bs-toggle="modal" data-bs-target="#group-log-detail-modal">
+					</td>
 					<td>
 					</td>
 				</tr>
