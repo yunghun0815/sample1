@@ -86,3 +86,15 @@
 	.ib{
 		display: inline-block;
 	}
+	.icon-search{
+		position: absolute;
+		top: 7px;
+		right: 177px;
+		width: 21px;
+		height: 20px;
+	}
+	
+	input[type="search"]{
+	    padding-left: 38px;
+    	padding-right: 0;
+	}

@@ -69,7 +69,8 @@
 						<option>프로그램명</option>
 					</select>
 				    <input class="form-control me-2" type="search" placeholder="검색어를 입력하세요."style="width: 200px; margin-left: 5px">
-				    <button class="btn btn-outline-primary" type="submit">Search</button>
+				    <!-- <button class="btn btn-outline-primary" type="submit">Search</button> -->
+				    <img class="icon-search" src="/image/common/search1.png" style="top: 17px; right: 187px;">
 				</form>
 			  </div>
 			</nav>

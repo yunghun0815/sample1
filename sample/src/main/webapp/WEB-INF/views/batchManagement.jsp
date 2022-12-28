@@ -257,14 +257,15 @@
 			<nav class="navbar navbar-light bg-light">
 			  <div class="container-fluid">
 			  	<a class="navbar-brand fw-bold">배치 그룹</a>
-				<form class="d-flex">
+				<form class="d-flex" style="position: relative;">
 					<select class="form-select form-select-sm">
 						<option selected>-선택하세요-</option>
 						<option>그룹ID</option>
 						<option>그룹명</option>
 					</select>
 				    <input class="form-control me-2" type="search" placeholder="검색어를 입력하세요."style="width: 200px; margin-left: 5px">
-				    <button class="btn btn-outline-primary" type="submit">Search</button>
+				    <!-- <button class="btn btn-outline-primary" type="submit">Search</button> -->
+				    <img class="icon-search" src="/image/common/search1.png">
 				</form>
 			  </div>
 			</nav>
@@ -411,7 +412,7 @@
 			<nav class="navbar navbar-light bg-light">
 			  <div class="container-fluid">
 			  	<a class="navbar-brand fw-bold">배치 프로그램</a>
-				<form class="d-flex">
+				<form class="d-flex" style="position: relative;">
 					<select class="form-select form-select-sm">
 						<option selected>-선택하세요-</option>
 						<option>그룹ID</option>
@@ -419,7 +420,8 @@
 						<option>프로그램명</option>
 					</select>
 				    <input class="form-control me-2" type="search" placeholder="검색어를 입력하세요."style="width: 200px; margin-left: 5px">
-				    <button class="btn btn-outline-primary" type="submit">Search</button>
+				    <!-- <button class="btn btn-outline-primary" type="submit">Search</button> -->
+				    <img class="icon-search" src="/image/common/search1.png">
 				</form>
 			  </div>
 			</nav>
