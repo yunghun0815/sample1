@@ -70,22 +70,6 @@
 		$("#update-batchGroupId").val();
 	}
 	
-	// 프로그램 상세보기
-	function appDetail(td){
-		const obj = $(td);
-		const id = obj.attr("id");
-		
-		$.ajax({
-			url: "/batch/app/detail?appId=" + id,
-			method: "GET",
-			success: function(result){
-				$("#update-app-batchGroupId").val(result['batchGroupId']);
-				$("#update-app-batchAppId").val(result['appId']);
-				$("#update-app-appName").val(result['appName']);
-				$("#update-app-path").val(result['path']);
-			}
-		})
-	}
 	
 	function appModify(table){
 		const obj = $(table);
@@ -97,7 +81,7 @@
 		//readonly 제거
 		$('.readwrite').prop('readonly', false);
 		//select readonly 제거
-		$(".readwrite option").not(":selected").attr("disabled", "");
+		$(".readwrite select").not(":selected").attr("disabled", "");
 		//file 변경
 		$('.file').html(`<input class="form-control" type="file">`);
 		//버튼 변경(수정삭제목록 -> 저장이전목록)
