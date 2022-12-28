@@ -80,18 +80,23 @@
 					<th style="width: 10%">프로그램명</th>
 					<th style="width: 10%">결과</th>
 					<th style="width: 10%">파라미터</th>
- 					<th style="width: 20%">배치시작시간</th>
-					<th style="width: 20%">배치종료시간</th>
-					<th style="width: 10%">재실행</th>
+ 					<th style="width: 18%">배치시작시간</th>
+					<th style="width: 18%">배치종료시간</th>
+					<th style="width: 7%">상세보기</th>
+					<th style="width: 7%">재실행</th>
 				</tr>
 				<tr>
-					<td data-bs-toggle="modal" data-bs-target="#program-log-detail-modal">PGL00010</td>
-					<td data-bs-toggle="modal" data-bs-target="#program-log-detail-modal">BPG00001</td>
-					<td data-bs-toggle="modal" data-bs-target="#program-log-detail-modal">정산1</td>
+					<td >PGL00010</td>
+					<td >BPG00001</td>
+					<td >정산1</td>
 					<td>성공</td>
 					<td></td>
 					<td>2022-12-29 00:00:00</td>
 					<td>2022-12-29 00:10:00</td>
+					<td>
+						<img class="icon" src="/image/common/detail-button.png" 
+							data-bs-toggle="modal" data-bs-target="#program-log-detail-modal">
+					</td>
 					<td></td>
 				</tr>
 				<tr>
@@ -102,6 +107,10 @@
 					<td></td>
 					<td>2022-12-28 00:00:00</td>
 					<td>2022-12-28 00:10:00</td>
+					<td>
+						<img class="icon" src="/image/common/detail-button.png" 
+							data-bs-toggle="modal" data-bs-target="#program-log-detail-modal">
+					</td>					
 					<td></td>
 				</tr>
 				<tr>
@@ -112,6 +121,10 @@
 					<td></td>
 					<td>2022-12-27 00:00:00</td>
 					<td>2022-12-27 00:10:00</td>
+					<td>
+						<img class="icon" src="/image/common/detail-button.png" 
+							data-bs-toggle="modal" data-bs-target="#program-log-detail-modal">
+					</td>
 					<td></td>
 				</tr>
 				<tr>
@@ -122,6 +135,10 @@
 					<td></td>
 					<td>2022-12-26 00:00:00</td>
 					<td>2022-12-26 00:10:00</td>
+					<td>
+						<img class="icon" src="/image/common/detail-button.png" 
+							data-bs-toggle="modal" data-bs-target="#program-log-detail-modal">
+					</td>
 					<td></td>
 				</tr>
 				<tr>
@@ -132,6 +149,10 @@
 					<td></td>
 					<td>2022-12-25 00:00:00</td>
 					<td>2022-12-25 00:10:00</td>
+					<td>
+						<img class="icon" src="/image/common/detail-button.png" 
+							data-bs-toggle="modal" data-bs-target="#program-log-detail-modal">
+					</td>
 					<td></td>
 				</tr>
 				<tr>
@@ -142,6 +163,10 @@
 					<td></td>
 					<td>2022-12-24 00:00:00</td>
 					<td>2022-12-24 00:10:00</td>
+					<td>
+						<img class="icon" src="/image/common/detail-button.png" 
+							data-bs-toggle="modal" data-bs-target="#program-log-detail-modal">
+					</td>
 					<td></td>
 				</tr>
 				<tr>
@@ -152,6 +177,10 @@
 					<td>2022-12-22</td>
 					<td>2022-12-23 09:15:00</td>
 					<td>2022-12-23 09:25:00</td>
+					<td>
+						<img class="icon" src="/image/common/detail-button.png" 
+							data-bs-toggle="modal" data-bs-target="#program-log-detail-modal">
+					</td>
 					<td></td>
 				</tr>
 				<tr>
@@ -162,7 +191,14 @@
 					<td></td>
 					<td>2022-12-23 00:00:00</td>
 					<td>2022-12-23 00:10:00</td>
-					<td><button class="btn btn-outline-danger btn-sm restart-btn" type="submit">Restart</button></td>
+					<td>
+						<img class="icon" src="/image/common/detail-button.png" 
+							data-bs-toggle="modal" data-bs-target="#program-log-detail-modal">
+					</td>
+					<td>
+						<!-- <button class="btn btn-outline-danger btn-sm restart-btn" type="submit">Restart</button> -->
+						<img class="icon restart-btn" src="/image/common/restart-button.png" style="cursor: pointer;">
+					</td>
 				</tr>
 				<tr>
 					<td>PGL00002</td>
@@ -172,6 +208,10 @@
 					<td></td>
 					<td>2022-12-22 00:00:00</td>
 					<td>2022-12-22 00:10:00</td>
+					<td>
+						<img class="icon" src="/image/common/detail-button.png" 
+							data-bs-toggle="modal" data-bs-target="#program-log-detail-modal">
+					</td>
 					<td></td>
 				</tr>
 				<tr>
@@ -182,6 +222,10 @@
 					<td></td>
 					<td>2022-12-21 00:00:00</td>
 					<td>2022-12-21 00:10:00</td>
+					<td>
+						<img class="icon" src="/image/common/detail-button.png" 
+							data-bs-toggle="modal" data-bs-target="#program-log-detail-modal">
+					</td>
 					<td></td>
 				</tr>
 			</table>

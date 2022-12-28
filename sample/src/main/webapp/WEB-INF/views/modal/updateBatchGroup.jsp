@@ -72,7 +72,7 @@
 	      				<td>
 	      					<strong>자동실행</strong>
 	      				</td>
-	      				<td>
+	      				<td style="padding-left: 21px; height: 53px; ">
 	      				  	Y				
 	      				</td>
 	      			</tr>

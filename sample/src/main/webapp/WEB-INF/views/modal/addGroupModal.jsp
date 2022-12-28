@@ -13,7 +13,7 @@
 	        <h5 id="log-app-id" class="modal-title">그룹 추가</h5>
 	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 	      </div>
-	      <div class="modal-body">
+	      <div class="modal-body" style="max-height: 690px; overflow: auto;">
 	      	<h6>그룹 등록</h6>
 	      	<table class="table table-bordered align-middle bg-white">
 				<tr>
@@ -91,22 +91,26 @@
 					</td>
 				</tr>
 			</table>
-			
-			<h6>프로그램 등록</h6>
-			<table class="table table-bordered align-middle bg-white">
-				<tr>
-					<th>프로그램명</th>
-					<td>
-						<input class="form-control" type="text">
-					</td>
-				</tr>
-				<tr>
-					<th>파일경로</th>
-					<td>
-						<input class="form-control" type="file">
-					</td>
-				</tr>
-			</table>
+			<div class="add-program">
+				<h6 style="display: flex; justify-content: space-between;">
+					프로그램 등록
+					<button class="btn btn-secondary btn-sm" onclick="addProgram(this)">행추가</button>
+				</h6>
+				<table class="table table-bordered align-middle bg-white">
+					<tr>
+						<th>프로그램명</th>
+						<td>
+							<input class="form-control" type="text">
+						</td>
+					</tr>
+					<tr>
+						<th>파일경로</th>
+						<td>
+							<input class="form-control" type="file">
+						</td>
+					</tr>
+				</table>
+			</div>
 	      </div>
 	      <div class="modal-footer">
 	      	<button class="btn btn-primary">등록</button>
